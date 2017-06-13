@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <style>
@@ -116,8 +117,8 @@ function updateGameArea() {
 	
 		if (myGameArea.key && myGameArea.key == 37) {gmoveleft(); gclearY(); checkButton();}
 		if (myGameArea.key && myGameArea.key == 39) {gmoveright(); gclearY(); checkButton();}
-		if (myGameArea.key && myGameArea.key == 38) {gmovedown(); gclearX(); checkButton();}
-		if (myGameArea.key && myGameArea.key == 40) {gmoveup(); gclearX(); checkButton();}
+		if (myGameArea.key && myGameArea.key == 38) {gmoveup(); gclearX(); checkButton();}
+		if (myGameArea.key && myGameArea.key == 40) {gmovedown(); gclearX(); checkButton();}
 	
 
       		myGamePiece.x += myGamePiece.speedX;
@@ -165,10 +166,10 @@ function clearY() {
 
 
 function gmoveup() {
-    g.speedY = 1;
+    g.speedY = -1;
 }
 function gmovedown() {
-    g.speedY = -1; 
+    g.speedY = 1; 
 }
 
 function gmoveleft() {
@@ -192,7 +193,23 @@ function checkButton() {
 
 		
 </script>
-
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <button onmousedown="moveup(),clearX(),checkButton()" ontouchstart="moveup(),clearX(),checkButton()">UP</button><br><br>
+  <button onmousedown="moveleft(),clearY(),checkButton()" ontouchstart="moveleft(),clearY(),checkButton()">LEFT</button>
+  <button onmousedown="moveright(),clearY(),checkButton()" ontouchstart="moveright(),clearY(),checkButton()">RIGHT</button><br><br>
+  <button onmousedown="movedown(),clearX(),checkButton()" ontouchstart="movedown(),clearX(),checkButton()">DOWN</button>
+    </div>
+    <div class="col-sm-4">
+      <button onmousedown="gmoveup(),gclearX(),checkButton()" ontouchstart="gmoveup(),gclearX(),checkButton()">UP</button><br><br>
+  <button onmousedown="gmoveleft(),gclearY(),checkButton()" ontouchstart="gmoveleft(),gclearY(),checkButton()">LEFT</button>
+  <button onmousedown="gmoveright(),gclearY(),checkButton()" ontouchstart="gmoveright(),gclearY(),checkButton()">RIGHT</button><br><br>
+  <button onmousedown="gmovedown(),gclearX(),checkButton()" ontouchstart="gmovedown(),gclearX(),checkButton()">DOWN</button>
+    </div>
+    
+  </div>
+</div>
 <p>IT fucking works fuck yeah</p>
 </body>
 </html>
