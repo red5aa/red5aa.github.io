@@ -16,19 +16,24 @@
 body { background-color : #F0f0F0; }
 </style>
 </head>
-<body onload="startGame()">
+<body>
 <script>
 
 var myGamePiece;
 var g;
 var winner;
 
+var twoPlayer = false;
+function TwoPlayer() {
+	twoPlayer = true;
+}
 
 var WIDTH = 500;
 var HEIGHT = 250;
 function startGame() {
-    myGamePiece = new component(5, 5, "red", 50, 120, 1, 0);
-    g  = new component(5, 5, "green", (WIDTH - 50), 120, -1, 0);
+    
+    if (twoPlayer == true){myGamePiece = new component(5, 5, "red", 50, 120, 1, 0); g  = new component(5, 5, "green", (WIDTH - 50), 120, -1, 0);}
+	else {myGamePiece = new component(5, 5, "red", 50, 120, 1, 0);}
     winner = new component("30px", "Consolas", "black", 0, 0, "text");    
     myGameArea.start();
 }
@@ -198,6 +203,11 @@ function checkButton() {
 
 		
 </script>
+<div>
+	<button onmousedown="TwoPlayer(),startGame()" ontouchstart="TwoPlayer(),startGame()">Start Two Player or Reset</button>
+	<button onmousedown="startGame()" ontouchstart="startGame()">Start One Player or Reset</button>
+</div>
+<div></div>
 <div class="container">
   <div class="row">
     <div class="col-sm-4">
